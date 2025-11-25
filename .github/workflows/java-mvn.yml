@@ -19,6 +19,7 @@ jobs:
 
     - name: Build with maven
       run: |
+        cd hellow-java-proj/
         mvn --batch-mode --update-snapshots verify
 
     - name: Run tests
