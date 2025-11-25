@@ -1,0 +1,31 @@
+name: My First GitHub Actions
+
+on: 
+  push:
+    paths:
+      -  'hellow-java-proj/*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.12]
+
+    steps:
+    - uses: actions/checkout@v5
+    - name: Set up JDK 11 for x64
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Build with maven
+      run: |
+        mvn --batch-mode --update-snapshots verify
+
+    - name: Run tests
+      run: |
+        cd hellow-java-proj/
+        mvn compile exec:java
