@@ -3,7 +3,7 @@ name: My First GitHub Actions
 on: 
   push:
     paths:
-      -  'hellow-java-proj/*'
+      -  'hellow-java-proj/**'
 jobs:
   build:
     runs-on: ubuntu-latest
