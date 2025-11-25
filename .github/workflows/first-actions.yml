@@ -1,7 +1,9 @@
 name: My First GitHub Actions
 
-on: [push]
-
+on: 
+  push:
+    paths:
+      -  'src/**'
 jobs:
   build:
     runs-on: ubuntu-latest
